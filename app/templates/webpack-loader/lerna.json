@@ -1,0 +1,15 @@
+{
+  <% if (useWorkspaces) { %>
+  "useWorkspaces": true,
+  <% } else { %>
+  "packages": [
+    "packages/*"
+  ],
+  <% } %>
+  <% if (independent) { %>
+  "version": "independent",
+  <% } else { %>
+  "version": "0.0.1",
+  <% } %>
+  "npmClient": "<%= pkgManager %>"
+}

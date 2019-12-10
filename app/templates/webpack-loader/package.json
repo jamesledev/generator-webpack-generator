@@ -5,6 +5,8 @@
   "main": "src/index.js",
   "keywords": [
     "webpack",
+    "webpack-loader",
+    "loader",
     "yeoman"
   ],
   "directories": {

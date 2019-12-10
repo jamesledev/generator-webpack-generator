@@ -5,9 +5,10 @@
 
 const Generator = require('yeoman-generator')
 const yosay = require('yosay')
+const camelCase = require('camelcase')
 
 const path = require('path')
-const validator = require('./validator')
+const validator = require('../libs/validators')
 const chalk = require('chalk')
 
 module.exports = class extends Generator {
@@ -75,6 +76,7 @@ module.exports = class extends Generator {
         const name = generator.options['name']
         if (name) {
           generator.extensionConfig.name = name
+          generator.extensionConfig.displayName = camelCase(name, { pascalCase: true })
           return Promise.resolve()
         }
 
@@ -84,10 +86,13 @@ module.exports = class extends Generator {
             name: 'name',
             message: "What's the name of your project?",
             default: generator.extensionConfig.name,
-            validate: validator.validateProjectName,
+            validate: validator.isPluginId,
           })
           .then(displayNameAnswer => {
             generator.extensionConfig.name = displayNameAnswer.name
+            generator.extensionConfig.displayName = camelCase(displayNameAnswer.name, {
+              pascalCase: true,
+            })
           })
       },
 
@@ -249,20 +254,20 @@ module.exports = class extends Generator {
     this.fs.copy(this.sourceRoot() + '/tests', context.name + '/tests')
     this.fs.copyTpl(this.sourceRoot() + '/src/index.js', context.name + '/src/index.js', context)
 
-    if (this.extensionConfig.gitInit) {
+    if (context.gitInit) {
       this.fs.copy(this.sourceRoot() + '/.gitignore', context.name + '/.gitignore')
     }
 
     this.fs.copy(this.sourceRoot() + '/.all-contributorsrc', context.name + '/.all-contributorsrc')
     this.fs.copyTpl(this.sourceRoot() + '/.editorconfig', context.name + '/.editorconfig', context)
-    this.fs.copyTpl(this.sourceRoot() + '/.eslintignore', context.name + '/.eslintignore', context)
-    this.fs.copyTpl(this.sourceRoot() + '/.eslintrc', context.name + '/.eslintrc', context)
+    this.fs.copyTpl(this.sourceRoot() + '/eslintignore', context.name + '/.eslintignore', context)
+    this.fs.copyTpl(this.sourceRoot() + '/eslintrc', context.name + '/.eslintrc', context)
     this.fs.copyTpl(
-      this.sourceRoot() + '/.prettierignore',
+      this.sourceRoot() + '/prettierignore',
       context.name + '/.prettierignore',
       context,
     )
-    this.fs.copyTpl(this.sourceRoot() + '/.prettierrc', context.name + '/.prettierrc', context)
+    this.fs.copyTpl(this.sourceRoot() + '/prettierrc', context.name + '/.prettierrc', context)
     this.fs.copyTpl(this.sourceRoot() + '/.yarnrc', context.name + '/.yarnrc', context)
     this.fs.copyTpl(this.sourceRoot() + '/CHANGELOG.md', context.name + '/CHANGELOG.md', context)
     this.fs.copyTpl(
@@ -297,20 +302,20 @@ module.exports = class extends Generator {
     this.fs.copy(this.sourceRoot() + '/tests', context.name + '/tests')
     this.fs.copyTpl(this.sourceRoot() + '/src/index.js', context.name + '/src/index.js', context)
 
-    if (this.extensionConfig.gitInit) {
+    if (context.gitInit) {
       this.fs.copy(this.sourceRoot() + '/.gitignore', context.name + '/.gitignore')
     }
 
     this.fs.copy(this.sourceRoot() + '/.all-contributorsrc', context.name + '/.all-contributorsrc')
     this.fs.copyTpl(this.sourceRoot() + '/.editorconfig', context.name + '/.editorconfig', context)
-    this.fs.copyTpl(this.sourceRoot() + '/.eslintignore', context.name + '/.eslintignore', context)
-    this.fs.copyTpl(this.sourceRoot() + '/.eslintrc', context.name + '/.eslintrc', context)
+    this.fs.copyTpl(this.sourceRoot() + '/eslintignore', context.name + '/.eslintignore', context)
+    this.fs.copyTpl(this.sourceRoot() + '/eslintrc', context.name + '/.eslintrc', context)
     this.fs.copyTpl(
-      this.sourceRoot() + '/.prettierignore',
+      this.sourceRoot() + '/prettierignore',
       context.name + '/.prettierignore',
       context,
     )
-    this.fs.copyTpl(this.sourceRoot() + '/.prettierrc', context.name + '/.prettierrc', context)
+    this.fs.copyTpl(this.sourceRoot() + '/prettierrc', context.name + '/.prettierrc', context)
     this.fs.copyTpl(this.sourceRoot() + '/.yarnrc', context.name + '/.yarnrc', context)
     this.fs.copyTpl(this.sourceRoot() + '/CHANGELOG.md', context.name + '/CHANGELOG.md', context)
     this.fs.copyTpl(

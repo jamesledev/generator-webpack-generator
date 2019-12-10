@@ -3,4 +3,4 @@ package.json
 /dist
 .dockerignore
 .eslintignore
-.templates
+templates/

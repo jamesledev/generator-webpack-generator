@@ -252,6 +252,7 @@ module.exports = class extends Generator {
     this.fs.copy(this.sourceRoot() + '/docs', context.name + '/docs')
     this.fs.copy(this.sourceRoot() + '/samples', context.name + '/samples')
     this.fs.copy(this.sourceRoot() + '/tests', context.name + '/tests')
+    this.fs.copy(this.sourceRoot() + '/src/cjs.js', context.name + '/src/cjs.js')
     this.fs.copyTpl(this.sourceRoot() + '/src/index.js', context.name + '/src/index.js', context)
 
     if (context.gitInit) {
@@ -259,33 +260,17 @@ module.exports = class extends Generator {
     }
 
     this.fs.copy(this.sourceRoot() + '/.all-contributorsrc', context.name + '/.all-contributorsrc')
-    this.fs.copyTpl(this.sourceRoot() + '/.editorconfig', context.name + '/.editorconfig', context)
-    this.fs.copyTpl(this.sourceRoot() + '/eslintignore', context.name + '/.eslintignore', context)
-    this.fs.copyTpl(this.sourceRoot() + '/eslintrc', context.name + '/.eslintrc', context)
-    this.fs.copyTpl(
-      this.sourceRoot() + '/prettierignore',
-      context.name + '/.prettierignore',
-      context,
-    )
-    this.fs.copyTpl(this.sourceRoot() + '/prettierrc', context.name + '/.prettierrc', context)
-    this.fs.copyTpl(this.sourceRoot() + '/.yarnrc', context.name + '/.yarnrc', context)
+    this.fs.copy(this.sourceRoot() + '/.editorconfig', context.name + '/.editorconfig')
+    this.fs.copy(this.sourceRoot() + '/eslintignore', context.name + '/.eslintignore')
+    this.fs.copy(this.sourceRoot() + '/eslintrc', context.name + '/.eslintrc')
+    this.fs.copy(this.sourceRoot() + '/prettierignore', context.name + '/.prettierignore')
+    this.fs.copy(this.sourceRoot() + '/prettierrc', context.name + '/.prettierrc')
+    this.fs.copy(this.sourceRoot() + '/.yarnrc', context.name + '/.yarnrc')
     this.fs.copyTpl(this.sourceRoot() + '/CHANGELOG.md', context.name + '/CHANGELOG.md', context)
-    this.fs.copyTpl(
-      this.sourceRoot() + '/CONTRIBUTING.md',
-      context.name + '/CONTRIBUTING.md',
-      context,
-    )
-    this.fs.copyTpl(
-      this.sourceRoot() + '/CONTRIBUTORS.md',
-      context.name + '/CONTRIBUTORS.md',
-      context,
-    )
-    this.fs.copyTpl(
-      this.sourceRoot() + '/jest.config.js',
-      context.name + '/jest.config.js',
-      context,
-    )
-    this.fs.copyTpl(this.sourceRoot() + '/jest.setup.js', context.name + '/jest.setup.js', context)
+    this.fs.copy(this.sourceRoot() + '/CONTRIBUTING.md', context.name + '/CONTRIBUTING.md')
+    this.fs.copy(this.sourceRoot() + '/CONTRIBUTORS.md', context.name + '/CONTRIBUTORS.md')
+    this.fs.copy(this.sourceRoot() + '/jest.config.js', context.name + '/jest.config.js')
+    this.fs.copy(this.sourceRoot() + '/jest.setup.js', context.name + '/jest.setup.js')
     this.fs.copyTpl(this.sourceRoot() + '/LICENSE.md', context.name + '/LICENSE.md', context)
     this.fs.copyTpl(this.sourceRoot() + '/package.json', context.name + '/package.json', context)
     this.fs.copyTpl(this.sourceRoot() + '/README.md', context.name + '/README.md', context)
@@ -300,6 +285,7 @@ module.exports = class extends Generator {
     this.fs.copy(this.sourceRoot() + '/docs', context.name + '/docs')
     this.fs.copy(this.sourceRoot() + '/samples', context.name + '/samples')
     this.fs.copy(this.sourceRoot() + '/tests', context.name + '/tests')
+    this.fs.copy(this.sourceRoot() + '/src/cjs.js', context.name + '/src/cjs.js')
     this.fs.copyTpl(this.sourceRoot() + '/src/index.js', context.name + '/src/index.js', context)
 
     if (context.gitInit) {
@@ -307,33 +293,17 @@ module.exports = class extends Generator {
     }
 
     this.fs.copy(this.sourceRoot() + '/.all-contributorsrc', context.name + '/.all-contributorsrc')
-    this.fs.copyTpl(this.sourceRoot() + '/.editorconfig', context.name + '/.editorconfig', context)
-    this.fs.copyTpl(this.sourceRoot() + '/eslintignore', context.name + '/.eslintignore', context)
-    this.fs.copyTpl(this.sourceRoot() + '/eslintrc', context.name + '/.eslintrc', context)
-    this.fs.copyTpl(
-      this.sourceRoot() + '/prettierignore',
-      context.name + '/.prettierignore',
-      context,
-    )
-    this.fs.copyTpl(this.sourceRoot() + '/prettierrc', context.name + '/.prettierrc', context)
-    this.fs.copyTpl(this.sourceRoot() + '/.yarnrc', context.name + '/.yarnrc', context)
+    this.fs.copy(this.sourceRoot() + '/.editorconfig', context.name + '/.editorconfig')
+    this.fs.copy(this.sourceRoot() + '/eslintignore', context.name + '/.eslintignore')
+    this.fs.copy(this.sourceRoot() + '/eslintrc', context.name + '/.eslintrc')
+    this.fs.copy(this.sourceRoot() + '/prettierignore', context.name + '/.prettierignore')
+    this.fs.copy(this.sourceRoot() + '/prettierrc', context.name + '/.prettierrc')
+    this.fs.copy(this.sourceRoot() + '/.yarnrc', context.name + '/.yarnrc')
     this.fs.copyTpl(this.sourceRoot() + '/CHANGELOG.md', context.name + '/CHANGELOG.md', context)
-    this.fs.copyTpl(
-      this.sourceRoot() + '/CONTRIBUTING.md',
-      context.name + '/CONTRIBUTING.md',
-      context,
-    )
-    this.fs.copyTpl(
-      this.sourceRoot() + '/CONTRIBUTORS.md',
-      context.name + '/CONTRIBUTORS.md',
-      context,
-    )
-    this.fs.copyTpl(
-      this.sourceRoot() + '/jest.config.js',
-      context.name + '/jest.config.js',
-      context,
-    )
-    this.fs.copyTpl(this.sourceRoot() + '/jest.setup.js', context.name + '/jest.setup.js', context)
+    this.fs.copy(this.sourceRoot() + '/CONTRIBUTING.md', context.name + '/CONTRIBUTING.md')
+    this.fs.copy(this.sourceRoot() + '/CONTRIBUTORS.md', context.name + '/CONTRIBUTORS.md')
+    this.fs.copy(this.sourceRoot() + '/jest.config.js', context.name + '/jest.config.js')
+    this.fs.copy(this.sourceRoot() + '/jest.setup.js', context.name + '/jest.setup.js')
     this.fs.copyTpl(this.sourceRoot() + '/LICENSE.md', context.name + '/LICENSE.md', context)
     this.fs.copyTpl(this.sourceRoot() + '/package.json', context.name + '/package.json', context)
     this.fs.copyTpl(this.sourceRoot() + '/README.md', context.name + '/README.md', context)

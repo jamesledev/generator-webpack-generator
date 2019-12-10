@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/upcwangying/generator-webpack-generator/compare/v0.0.2-alpha.0...v0.1.0) (2019-12-10)
+
+
+### Features
+
+* plugin loader ([f6d7d73](https://github.com/upcwangying/generator-webpack-generator/commit/f6d7d73ef1bf0387ac4f805f295fd56180cfdf56))
+
+
+### Bug Fixes
+
+* bug fixed ([a87e231](https://github.com/upcwangying/generator-webpack-generator/commit/a87e231233f934202eb3f4bbf2e54c73557407bf))
+
 ### 0.0.2-alpha.0 (2019-12-10)
 
 

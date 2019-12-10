@@ -191,6 +191,24 @@ module.exports = class extends Generator {
             generator.extensionConfig.gitInit = gitAnswer.gitInit
           })
       },
+
+      // 8. Ask for git repo url
+      askForGitRepoUrl: () => {
+        generator.extensionConfig.gitRepo = 'https://github.com/your-name/your-repo-name'
+        if (!generator.extensionConfig.gitInit) {
+          return Promise.resolve()
+        }
+
+        return generator
+          .prompt({
+            type: 'confirm',
+            name: 'gitRepo',
+            message: "What's the url of your repository?",
+          })
+          .then(gitAnswer => {
+            generator.extensionConfig.gitRepo = gitAnswer.gitRepo
+          })
+      },
     }
 
     // run all prompts in sequence. Results can be ignored.
@@ -228,16 +246,8 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.sourceRoot() + '/docs', context.name + '/docs')
     this.fs.copy(this.sourceRoot() + '/samples', context.name + '/samples')
-    this.fs.copyTpl(
-      this.sourceRoot() + '/packages/t-pkg/package.json',
-      context.name + '/packages/pkg/package.json',
-      context,
-    )
-    this.fs.copyTpl(
-      this.sourceRoot() + '/packages/t-pkg2/package.json',
-      context.name + '/packages/pkg2/package.json',
-      context,
-    )
+    this.fs.copy(this.sourceRoot() + '/tests', context.name + '/tests')
+    this.fs.copyTpl(this.sourceRoot() + '/src/index.js', context.name + '/src/index.js', context)
 
     if (this.extensionConfig.gitInit) {
       this.fs.copy(this.sourceRoot() + '/.gitignore', context.name + '/.gitignore')
@@ -271,7 +281,6 @@ module.exports = class extends Generator {
       context,
     )
     this.fs.copyTpl(this.sourceRoot() + '/jest.setup.js', context.name + '/jest.setup.js', context)
-    this.fs.copyTpl(this.sourceRoot() + '/lerna.json', context.name + '/lerna.json', context)
     this.fs.copyTpl(this.sourceRoot() + '/LICENSE.md', context.name + '/LICENSE.md', context)
     this.fs.copyTpl(this.sourceRoot() + '/package.json', context.name + '/package.json', context)
     this.fs.copyTpl(this.sourceRoot() + '/README.md', context.name + '/README.md', context)
@@ -285,16 +294,8 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.sourceRoot() + '/docs', context.name + '/docs')
     this.fs.copy(this.sourceRoot() + '/samples', context.name + '/samples')
-    this.fs.copyTpl(
-      this.sourceRoot() + '/packages/t-pkg/package.json',
-      context.name + '/packages/pkg/package.json',
-      context,
-    )
-    this.fs.copyTpl(
-      this.sourceRoot() + '/packages/t-pkg2/package.json',
-      context.name + '/packages/pkg2/package.json',
-      context,
-    )
+    this.fs.copy(this.sourceRoot() + '/tests', context.name + '/tests')
+    this.fs.copyTpl(this.sourceRoot() + '/src/index.js', context.name + '/src/index.js', context)
 
     if (this.extensionConfig.gitInit) {
       this.fs.copy(this.sourceRoot() + '/.gitignore', context.name + '/.gitignore')
@@ -328,7 +329,6 @@ module.exports = class extends Generator {
       context,
     )
     this.fs.copyTpl(this.sourceRoot() + '/jest.setup.js', context.name + '/jest.setup.js', context)
-    this.fs.copyTpl(this.sourceRoot() + '/lerna.json', context.name + '/lerna.json', context)
     this.fs.copyTpl(this.sourceRoot() + '/LICENSE.md', context.name + '/LICENSE.md', context)
     this.fs.copyTpl(this.sourceRoot() + '/package.json', context.name + '/package.json', context)
     this.fs.copyTpl(this.sourceRoot() + '/README.md', context.name + '/README.md', context)

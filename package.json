@@ -8,6 +8,9 @@
     "webpack-plugin",
     "webpack-loader"
   ],
+  "directories": {
+    "test": "tests"
+  },
   "homepage": "https://github.com/upcwangying/generator-webpack-generator",
   "bugs": "https://github.com/upcwangying/generator-webpack-generator/issues",
   "author": {
@@ -21,7 +24,8 @@
     "libs"
   ],
   "scripts": {
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "mocha 'tests/**/*.js'"
   },
   "license": "MIT",
   "repository": "upcwangying/generator-webpack-generator",
